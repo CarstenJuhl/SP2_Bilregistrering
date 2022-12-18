@@ -1,0 +1,73 @@
+@startuml
+
+Main *-- FleetOfCars
+FleetOfCars *-- Car
+Car <|-- ACar
+ACar <|-- AFuelCar
+ACar <|-- ElectricCar
+AFuelCar <|-- GasolinCar
+AFuelCar <|-- DieselCar
+
+class Main{
+public static void main()
+}
+
+class FleetOfCars{
+
+ArrayList<Car> fleet
+
+void AddCar(Car car)
+int getTotalRegistrationFeeForFleet()
+@override String toString()
+}
+
+Interface Car{
+String getRegistationNumber()
+String getMake()
+String getModel()
+int getNumberOfDoors()
+int getRegistrationFee()
+}
+
+Abstract class ACar{
+String registrationNumber
+String getMakeString model
+int getNumberOfDoors
+
+String getRegistationNumber()
+String getModel()
+int getNumberOfDoors()
+@override String toString()
+}
+
+Abstract class AFuelCar{
+int kmPrLitre
+String getFuelType()
+int getKmPrLitre()
+@override String toString()
+}
+
+class ElectricCar{
+int batteryCapacity
+int maxRange
+
+int getBatteryCapacityKWh()
+int getMaxRangeKm()
+int getWhPrKm()
+int getRegistrationFee()
+@override String toString
+}
+
+class GasolinCar{
+int getRegistrationFee()
+@override String toString()
+}
+
+class DieselCar{
+boolean particleFilter
+boolean hasParticleFilter()
+int getRegistrationFee()
+@override String toString()
+}
+
+@enduml
